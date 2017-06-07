@@ -14,7 +14,7 @@ secrets.json
 client_secret.json
 
 # misc
-.yarn.lock
+yarn.lock
 .DS_Store
 .env.local
 .env.development.local
