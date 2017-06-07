@@ -1,0 +1,11 @@
+{
+  "name": "youtube-video-list",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^19.0.0",
+    "pug": "^2.0.0-rc.2"
+  }
+}
