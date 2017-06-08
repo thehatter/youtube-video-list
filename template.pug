@@ -1,0 +1,20 @@
+.widgets_container
+  .new_video_vidget_cont
+    .widget_header.clearfix
+      a(href="#")
+        .header_title ИНТЕРНЕТ-ТЕЛЕВИДЕНИЕ ГОРОДСКОГО ПОРТАЛА
+      .show_more
+        a(href="#") Смотреть архив видеозаписей
+
+    .widget_body
+      .body_pad
+        .widget_body_in.owl-carousel.owl-theme#video-carusel
+
+            each video in videos
+              .widget_item_container
+                a(href="#")
+                  .widget_item
+                    .img
+                      img(src=video.snippet.thumbnails.medium.url)
+                      .play_button
+                    .title= video.snippet.title

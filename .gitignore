@@ -13,6 +13,9 @@
 secrets.json
 client_secret.json
 
+#html files
+*.html
+
 # misc
 yarn.lock
 .DS_Store

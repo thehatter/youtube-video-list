@@ -154,16 +154,28 @@ function getVideos(auth) {
       //videos.forEach(function(video) {
         //console.log(video.snippet.title );
       //});
-      renderTemplate(videos);
+      saveTemplate(videos);
     }
   });
+}
+
+function saveTemplate(videos) {
+  saveHTMLfile(renderTemplate(videos));
 }
 
 
 function renderTemplate(videos) {
   // Compile template.pug, and render a set of data
-  console.log(pug.renderFile('template.pug', {
-    videos: videos,
-    name: "test"
+  return (pug.renderFile('template.pug', {
+    videos: videos
   }));
+}
+
+function saveHTMLfile(fileBody) {
+  fs.writeFile("youtube_vidget.html", fileBody, function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("The file was saved!");
+  }); 
 }
