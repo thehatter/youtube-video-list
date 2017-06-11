@@ -103,44 +103,15 @@ function storeToken(token) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-//function getChannel(auth) {
-  //var service = google.youtube('v3');
-  //service.playlistItems.list({
-    //auth: auth,
-    //maxResults: 10,
-    //part: 'snippet,contentDetails',
-    //playlistId: 'LLsvrWrIu_1ws5vC17h4EzeA'
-  //}, function(err, response) {
-    //if (err) {
-      //console.log('The API returned an error: ' + err);
-      //return;
-    //}
-    //var channels = response.items;
-    //if (channels.length == 0) {
-      //console.log('No channel found.');
-    //} else {
-      //console.log('This channel\'s ID is %s. Its title is \'%s\', and ' +
-                  //'it has %s views.',
-                  //channels[0].id,
-                  //channels[0].snippet.title,
-                  //channels[0].snippet.title);
-    //}
-  //});
-//}
-
-/**
- * Lists the names and IDs of up to 10 files chanell.
- *
- * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
+// @todo add function to get uploads playlist id from chanel
+// and save it to local config file! No hardocde! 
 function getVideos(auth) {
   var service = google.youtube('v3');
-  service.search.list({
+  service.playlistItems.list({
     auth: auth,
-    channelId: secrets.chanel_id,
     maxResults: 10,
-    part: 'snippet',
-    order: 'date'
+    part: 'snippet,contentDetails',
+    playlistId: 'UUsvrWrIu_1ws5vC17h4EzeA'
   }, function(err, response) {
     if (err) {
       console.log('The API returned an error: ' + err);
@@ -158,6 +129,37 @@ function getVideos(auth) {
     }
   });
 }
+
+/**
+ * Lists the names and IDs of up to 10 files chanell.
+ *
+ * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
+ */
+//function getVideos(auth) {
+  //var service = google.youtube('v3');
+  //service.search.list({
+    //auth: auth,
+    //channelId: secrets.chanel_id,
+    //maxResults: 10,
+    //part: 'snippet',
+    //order: 'date'
+  //}, function(err, response) {
+    //if (err) {
+      //console.log('The API returned an error: ' + err);
+      //return;
+    //}
+    //var videos = response.items;
+    //if (videos.length == 0) {
+      //console.log('No video found.');
+    //} else {
+      ////console.log(videos);
+      ////videos.forEach(function(video) {
+        ////console.log(video.snippet.title );
+      ////});
+      //saveTemplate(videos);
+    //}
+  //});
+//}
 
 function saveTemplate(videos) {
   saveHTMLfile(renderTemplate(videos));
