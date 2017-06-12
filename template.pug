@@ -15,7 +15,7 @@
 
               each video in videos
                 .widget_item_container
-                  a(href="http://www.youtube.com/watch?v=" + video.id.videoId)
+                  a(href="http://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId)
                     .widget_item
                       .img
                         img(src=video.snippet.thumbnails.medium.url)
