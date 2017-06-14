@@ -11,8 +11,7 @@
     .widget_body
       .container
         .body_pad
-          .widget_body_in.owl-carousel.owl-theme#video-carusel
-
+          #video-carusel.widget_body_in.owl-carousel.owl-theme
               each video in videos
                 .widget_item_container
                   a(href="http://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId target="_blank")

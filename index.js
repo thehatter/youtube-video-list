@@ -8,7 +8,6 @@ const pug = require('pug');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/youtube-nodejs-quickstart.json
-// @todo mb. change credentials location...
 var SCOPES = ['https://www.googleapis.com/auth/youtube.readonly'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
@@ -121,10 +120,6 @@ function getVideos(auth) {
     if (videos.length == 0) {
       console.log('No video found.');
     } else {
-      //console.log(videos);
-      //videos.forEach(function(video) {
-        //console.log(video.snippet.title );
-      //});
       saveTemplate(videos);
     }
   });
@@ -135,6 +130,7 @@ function getVideos(auth) {
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
+// serch function NOT return all uploads from chenel! mb bug or something
 //function getVideos(auth) {
   //var service = google.youtube('v3');
   //service.search.list({
@@ -161,6 +157,7 @@ function getVideos(auth) {
   //});
 //}
 
+// @add notifications and log
 function saveTemplate(videos) {
   saveHTMLfile(renderTemplate(videos));
 }
