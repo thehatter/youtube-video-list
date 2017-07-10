@@ -104,13 +104,16 @@ function storeToken(token) {
  */
 // @todo add function to get uploads playlist id from chanel
 // and save it to local config file! No hardocde! 
+
 function getVideos(auth) {
   var service = google.youtube('v3');
   service.playlistItems.list({
     auth: auth,
     maxResults: 10,
     part: 'snippet,contentDetails',
-    playlistId: 'UUsvrWrIu_1ws5vC17h4EzeA'
+    playlistId: 'PL9DYy-8BkbX5_ehcLP61a5pSGLWjKSx9b'
+    // gorod all videos playlist id is UUsvrWrIu_1ws5vC17h4EzeA
+    // playlist new id 8BkbX5_ehcLP61a5pSGLWjKSx9b
   }, function(err, response) {
     if (err) {
       console.log('The API returned an error: ' + err);
