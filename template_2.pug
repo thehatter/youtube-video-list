@@ -1,0 +1,30 @@
+.new_widgets_container
+  .container
+    .row
+      .col-md-12
+        .big_section_header_base.big_section_header_slim.big_sect_video
+          .title
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="38.4px" height="26.4px" viewBox="0 0 38.4 26.4" enable-background="new 0 0 38.4 26.4" xml:space="preserve"> <g> <path fill="none" stroke="#7D1CB6" stroke-width="1.8177" stroke-miterlimit="10" d="M37.5,25.5c-0.4,0-0.6,0-0.9,0 c-11.6,0-23.2,0-34.8,0c-0.9,0-0.9,0-0.9-0.9c0-7.6,0-15.2,0-22.8c0-0.9,0-0.9,0.9-0.9c11.6,0,23.2,0,34.9,0c0.7,0,0.8,0.2,0.8,0.8 c0,7.6,0,15.3,0,22.9C37.5,24.9,37.5,25.1,37.5,25.5z"></path> <path fill="none" stroke="#7D1CB6" stroke-width="1.8177" stroke-miterlimit="10" d="M15.1,19.7c0-4.2,0-8.2,0-12.4 c3.6,2.1,7,4.1,10.6,6.2C22.2,15.6,18.7,17.6,15.1,19.7z"></path> </g> </svg>
+            a(href="https://www.youtube.com/user/gorodvitebskby1" target="_blank")
+              h3 <span>ИНТЕРНЕТ-ТВ</span> ГОРОДСКОГО ПОРТАЛА
+          .r_links
+            a(href="https://www.youtube.com/user/gorodvitebskby1" target="_blank") Смотреть все видео»
+
+
+
+  .new_video_vidget_cont_v2
+    .widget_header.clearfix
+
+    .widget_body
+      .container
+        .body_pad
+          #video-carusel.widget_body_in.owl-carousel.owl-theme
+              each video in videos
+                if video.snippet.thumbnails
+                  .widget_item_container
+                    a(href="http://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId target="_blank")
+                      .widget_item
+                        .img
+                          img(src=video.snippet.thumbnails.medium.url)
+                          .play_button
+                        .title= video.snippet.title

@@ -165,19 +165,20 @@ function saveTemplate(videos) {
   videos.map(function(video) {
     console.log(video);
   });
-  saveHTMLfile(renderTemplate(videos));
+  saveHTMLfile(renderTemplate(videos, 'template.pug'), 'youtube_vidget.html' );
+  saveHTMLfile(renderTemplate(videos, 'template_2.pug'), 'youtube_vidget_2.html' );
 }
 
 
-function renderTemplate(videos) {
+function renderTemplate(videos, templateName) {
   // Compile template.pug, and render a set of data
-  return (pug.renderFile('template.pug', {
+  return (pug.renderFile(templateName, {
     videos: videos
   }));
 }
 
-function saveHTMLfile(fileBody) {
-  fs.writeFile("youtube_vidget.html", fileBody, function(err) {
+function saveHTMLfile(fileBody, fileName) {
+  fs.writeFile(fileName, fileBody, function(err) {
     if(err) {
       return console.log(err);
     }
