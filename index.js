@@ -162,6 +162,9 @@ function getVideos(auth) {
 
 // @add notifications and log
 function saveTemplate(videos) {
+  videos.map(function(video) {
+    console.log(video);
+  });
   saveHTMLfile(renderTemplate(videos));
 }
 

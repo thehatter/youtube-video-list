@@ -13,10 +13,11 @@
         .body_pad
           #video-carusel.widget_body_in.owl-carousel.owl-theme
               each video in videos
-                .widget_item_container
-                  a(href="http://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId target="_blank")
-                    .widget_item
-                      .img
-                        img(src=video.snippet.thumbnails.medium.url)
-                        .play_button
-                      .title= video.snippet.title
+                if video.snippet.thumbnails
+                  .widget_item_container
+                    a(href="http://www.youtube.com/watch?v=" + video.snippet.resourceId.videoId target="_blank")
+                      .widget_item
+                        .img
+                          img(src=video.snippet.thumbnails.medium.url)
+                          .play_button
+                        .title= video.snippet.title
